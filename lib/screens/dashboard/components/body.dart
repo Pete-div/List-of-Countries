@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:i_country/controller/dashboard_controller.dart';
 import 'package:i_country/screens/dashboard/components/button_widget.dart';
 
 class Body extends GetView {
@@ -9,8 +10,7 @@ class Body extends GetView {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:
-       Padding(
+      body: Padding(
         padding: const EdgeInsets.only(left: 15.0, right: 15),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -100,94 +100,100 @@ class Body extends GetView {
                     text: 'FILTER',
                     icon: Image.asset(
                       'assets/images/filter.png',
-                      width: 19,
-                      height: 17,
+                      width: 16,
+                      height: 15,
                     ),
                   ),
                 ),
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 3.0, bottom: 3),
-              child: Container(
-                height: 400,
-                child: ListView.builder(
-                    shrinkWrap: true,
-                    padding: EdgeInsets.zero,
-                    itemCount: 10,
-                    itemBuilder: (ctx, i) {
-                      return SingleChildScrollView(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(12.0),
-                              child: const Text(
-                                'A',
-                                style: const TextStyle(
-                                  fontSize: 14,
-                                  color: Color.fromRGBO(102, 112, 133, 1),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 12.0),
-                              child: GestureDetector(
-                                onTap: () {},
-                                child: Row(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(right: 16),
-                                      child: Container(
-                                        width: 40,
-                                        height: 40,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(6),
-                                            image: DecorationImage(
-                                                image: AssetImage(
-                                                  'assets/images/m4.jpg',
-                                                ),
-                                                fit: BoxFit.cover)),
-                                      ),
+            GetBuilder<DashBoardController>(builder: (controller) {
+              return Padding(
+                padding: const EdgeInsets.only(top: 3.0, bottom: 3),
+                child: GestureDetector(
+                  onTap: () {},
+                  child: Container(
+                    height: 400,
+                    child: ListView.builder(
+                        shrinkWrap: true,
+                        padding: EdgeInsets.zero,
+                        itemCount: 10,
+                        itemBuilder: (ctx, i) {
+                          return SingleChildScrollView(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(12.0),
+                                  child: const Text(
+                                    'A',
+                                    style: const TextStyle(
+                                      fontSize: 14,
+                                      color: Color.fromRGBO(102, 112, 133, 1),
                                     ),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: const [
-                                        Text(
-                                          'Nigeria',
-                                          style: TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w400,
-                                            color:
-                                                Color.fromRGBO(28, 25, 23, 1),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 12.0),
+                                  child: GestureDetector(
+                                    onTap: () {},
+                                    child: Row(
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(right: 16),
+                                          child: Container(
+                                            width: 40,
+                                            height: 40,
+                                            decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(6),
+                                                image: DecorationImage(
+                                                    image: NetworkImage(
+                                                      controller.listOfCountries
+                                                    ),
+                                                    fit: BoxFit.cover)),
                                           ),
                                         ),
-                                        SizedBox(
-                                          height: 10,
-                                        ),
-                                        Text(
-                                          'Capital',
-                                          style: TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w400,
-                                            color: Color.fromRGBO(
-                                                102, 112, 133, 1),
-                                          ),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: const [
+                                            Text(
+                                              'Nigeria',
+                                              style: TextStyle(
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.w400,
+                                                color: Color.fromRGBO(
+                                                    28, 25, 23, 1),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height: 10,
+                                            ),
+                                            Text(
+                                              'Capital',
+                                              style: TextStyle(
+                                                fontSize: 14,
+                                                fontWeight: FontWeight.w400,
+                                                color: Color.fromRGBO(
+                                                    102, 112, 133, 1),
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ],
                                     ),
-                                  ],
+                                  ),
                                 ),
-                              ),
+                              ],
                             ),
-                          ],
-                        ),
-                      );
-                    }),
-              ),
-            ),
+                          );
+                        }),
+                  ),
+                ),
+              );
+            })
           ],
         ),
       ),

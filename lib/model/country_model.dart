@@ -1,119 +1,125 @@
 class Countries {
-  Name? name;
-  List<String>? tld;
-  String? cca2;
-  String? ccn3;
-  String? cca3;
-  String? cioc;
-  bool? independent;
-  String? status;
-  bool? unMember;
-  Currencies? currencies;
-  Idd? idd;
-  List<String>? capital;
-  List<String>? altSpellings;
-  String? region;
-  String? subregion;
-  Languages? languages;
-  Translations? translations;
-  List<double>? latlng;
-  bool? landlocked;
-  int? area;
-  Demonyms? demonyms;
-  String? flag;
-  Maps? maps;
-  int? population;
-  String? fifa;
-  Car? car;
-  List<String>? timezones;
-  List<String>? continents;
-  Flags? flags;
-  Flags? coatOfArms;
-  String? startOfWeek;
-  CapitalInfo? capitalInfo;
-  PostalCode? postalCode;
+  late NameModel? _name;
+  NameModel get name => _name!;
+  List<String>? _tld;
+  String? _cca2;
+  String? _ccn3;
+  String? _cca3;
+  String? _cioc;
+  bool? _independent;
+  String? _status;
+  bool? _unMember;
+  Currencies? _currencies;
+  Idd? _idd;
+  List<String>? _capital;
+  List<String>? _altSpellings;
+  String? _region;
+  String? _subregion;
+  Languages? _languages;
+  Translations? _translations;
+  List<double>? _latlng;
+  bool? _landlocked;
+  int? _area;
+  Demonyms? _demonyms;
+  late String _flag;
+   String get flag => _flag;
+  Maps? _maps;
+  int? _population;
+  String? _fifa;
+  Car? _car;
+  List<String>? _timezones;
+  List<String>? _continents;
+  late Flags? _flags;
+  Flags get flags => _flags!;
+  Flags? _coatOfArms;
+  String? _startOfWeek;
+  CapitalInfo? _capitalInfo;
+  PostalCode? _postalCode;
 
   Countries(
-      {this.name,
-      this.tld,
-      this.cca2,
-      this.ccn3,
-      this.cca3,
-      this.cioc,
-      this.independent,
-      this.status,
-      this.unMember,
-      this.currencies,
-      this.idd,
-      this.capital,
-      this.altSpellings,
-      this.region,
-      this.subregion,
-      this.languages,
-      this.translations,
-      this.latlng,
-      this.landlocked,
-      this.area,
-      this.demonyms,
-      this.flag,
-      this.maps,
-      this.population,
-      this.fifa,
-      this.car,
-      this.timezones,
-      this.continents,
-      this.flags,
-      this.coatOfArms,
-      this.startOfWeek,
-      this.capitalInfo,
-      this.postalCode});
+      {required name,
+      required tld,
+      required cca2,
+      required ccn3,
+      required cca3,
+      required cioc,
+      required independent,
+      required status,
+      required unMember,
+      required currencies,
+      required idd,
+      required capital,
+      required altSpellings,
+      required region,
+      required subregion,
+      required languages,
+      required translations,
+      required latlng,
+      required landlocked,
+      required area,
+      required demonyms,
+      required flag,
+      required maps,
+      required population,
+      required fifa,
+      required car,
+      required timezones,
+      required continents,
+      required flags,
+      required coatOfArms,
+      required startOfWeek,
+      required capitalInfo,
+      required postalCode}) {
+    this._name = name;
+    this._flags = flags;
+  }
 
   Countries.fromJson(Map<String, dynamic> json) {
-    name = json['name'] != null ? new Name.fromJson(json['name']) : null;
-    tld = json['tld'].cast<String>();
-    cca2 = json['cca2'];
-    ccn3 = json['ccn3'];
-    cca3 = json['cca3'];
-    cioc = json['cioc'];
-    independent = json['independent'];
-    status = json['status'];
-    unMember = json['unMember'];
-    currencies = json['currencies'] != null
+    _name = json['name'] != null ? NameModel.fromJson(json['name']) : null;
+    _tld = json['tld'].cast<String>();
+    _cca2 = json['cca2'];
+    _ccn3 = json['ccn3'];
+    _cca3 = json['cca3'];
+    _cioc = json['cioc'];
+    _independent = json['independent'];
+    _status = json['status'];
+    _unMember = json['unMember'];
+    _currencies = json['currencies'] != null
         ? new Currencies.fromJson(json['currencies'])
         : null;
-    idd = json['idd'] != null ? new Idd.fromJson(json['idd']) : null;
-    capital = json['capital'].cast<String>();
-    altSpellings = json['altSpellings'].cast<String>();
-    region = json['region'];
-    subregion = json['subregion'];
-    languages = json['languages'] != null
+    _idd = json['idd'] != null ? new Idd.fromJson(json['idd']) : null;
+    _capital = json['capital'].cast<String>();
+    _altSpellings = json['altSpellings'].cast<String>();
+    _region = json['region'];
+    _subregion = json['subregion'];
+    _languages = json['languages'] != null
         ? new Languages.fromJson(json['languages'])
         : null;
-    translations = json['translations'] != null
+    _translations = json['translations'] != null
         ? new Translations.fromJson(json['translations'])
         : null;
-    latlng = json['latlng'].cast<double>();
-    landlocked = json['landlocked'];
-    area = json['area'];
-    demonyms = json['demonyms'] != null
+    _latlng = json['latlng'].cast<double>();
+    _landlocked = json['landlocked'];
+    _area = json['area'];
+    _demonyms = json['demonyms'] != null
         ? new Demonyms.fromJson(json['demonyms'])
         : null;
-    flag = json['flag'];
-    maps = json['maps'] != null ? new Maps.fromJson(json['maps']) : null;
-    population = json['population'];
-    fifa = json['fifa'];
-    car = json['car'] != null ? new Car.fromJson(json['car']) : null;
-    timezones = json['timezones'].cast<String>();
-    continents = json['continents'].cast<String>();
-    flags = json['flags'] != null ? new Flags.fromJson(json['flags']) : null;
-    coatOfArms = json['coatOfArms'] != null
+    _flag = json['flag'];
+    _maps = json['maps'] != null ? new Maps.fromJson(json['maps']) : null;
+    _population = json['population'];
+    _fifa = json['fifa'];
+    _car = json['car'] != null ? new Car.fromJson(json['car']) : null;
+    _timezones = json['timezones'].cast<String>();
+    _continents = json['continents'].cast<String>();
+    _flags = json['flags'] != null ? new Flags.fromJson(json['flags']) : null;
+    _coatOfArms = json['coatOfArms'] != null
         ? new Flags.fromJson(json['coatOfArms'])
         : null;
-    startOfWeek = json['startOfWeek'];
-    capitalInfo = json['capitalInfo'] != null
+    _startOfWeek = json['startOfWeek'];
+    _capitalInfo = json['capitalInfo'] != null
         ? new CapitalInfo.fromJson(json['capitalInfo'])
         : null;
-    postalCode = json['postalCode'] != null
+    _postalCode = json['postalCode'] != null
         ? new PostalCode.fromJson(json['postalCode'])
         : null;
   }
@@ -121,74 +127,74 @@ class Countries {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     if (this.name != null) {
-      data['name'] = this.name!.toJson();
+      data['name'] = this.name.toJson();
     }
-    data['tld'] = this.tld;
-    data['cca2'] = this.cca2;
-    data['ccn3'] = this.ccn3;
-    data['cca3'] = this.cca3;
-    data['cioc'] = this.cioc;
-    data['independent'] = this.independent;
-    data['status'] = this.status;
-    data['unMember'] = this.unMember;
-    if (this.currencies != null) {
-      data['currencies'] = this.currencies!.toJson();
+    data['tld'] = this._tld;
+    data['cca2'] = this._cca2;
+    data['ccn3'] = this._ccn3;
+    data['cca3'] = this._cca3;
+    data['cioc'] = this._cioc;
+    data['independent'] = this._independent;
+    data['status'] = this._status;
+    data['unMember'] = this._unMember;
+    if (this._currencies != null) {
+      data['currencies'] = this._currencies!.toJson();
     }
-    if (this.idd != null) {
-      data['idd'] = this.idd!.toJson();
+    if (this._idd != null) {
+      data['idd'] = this._idd!.toJson();
     }
-    data['capital'] = this.capital;
-    data['altSpellings'] = this.altSpellings;
-    data['region'] = this.region;
-    data['subregion'] = this.subregion;
-    if (this.languages != null) {
-      data['languages'] = this.languages!.toJson();
+    data['capital'] = this._capital;
+    data['altSpellings'] = this._altSpellings;
+    data['region'] = this._region;
+    data['subregion'] = this._subregion;
+    if (this._languages != null) {
+      data['languages'] = this._languages!.toJson();
     }
-    if (this.translations != null) {
-      data['translations'] = this.translations!.toJson();
+    if (this._translations != null) {
+      data['translations'] = this._translations!.toJson();
     }
-    data['latlng'] = this.latlng;
-    data['landlocked'] = this.landlocked;
-    data['area'] = this.area;
-    if (this.demonyms != null) {
-      data['demonyms'] = this.demonyms!.toJson();
+    data['latlng'] = this._latlng;
+    data['landlocked'] = this._landlocked;
+    data['area'] = this._area;
+    if (this._demonyms != null) {
+      data['demonyms'] = this._demonyms!.toJson();
     }
-    data['flag'] = this.flag;
-    if (this.maps != null) {
-      data['maps'] = this.maps!.toJson();
+    data['flag'] = this._flag;
+    if (this._maps != null) {
+      data['maps'] = this._maps!.toJson();
     }
-    data['population'] = this.population;
-    data['fifa'] = this.fifa;
-    if (this.car != null) {
-      data['car'] = this.car!.toJson();
+    data['population'] = this._population;
+    data['fifa'] = this._fifa;
+    if (this._car != null) {
+      data['car'] = this._car!.toJson();
     }
-    data['timezones'] = this.timezones;
-    data['continents'] = this.continents;
+    data['timezones'] = this._timezones;
+    data['continents'] = this._continents;
     if (this.flags != null) {
-      data['flags'] = this.flags!.toJson();
+      data['flags'] = this.flags.toJson();
     }
-    if (this.coatOfArms != null) {
-      data['coatOfArms'] = this.coatOfArms!.toJson();
+    if (this._coatOfArms != null) {
+      data['coatOfArms'] = this._coatOfArms!.toJson();
     }
-    data['startOfWeek'] = this.startOfWeek;
-    if (this.capitalInfo != null) {
-      data['capitalInfo'] = this.capitalInfo!.toJson();
+    data['startOfWeek'] = this._startOfWeek;
+    if (this._capitalInfo != null) {
+      data['capitalInfo'] = this._capitalInfo!.toJson();
     }
-    if (this.postalCode != null) {
-      data['postalCode'] = this.postalCode!.toJson();
+    if (this._postalCode != null) {
+      data['postalCode'] = this._postalCode!.toJson();
     }
     return data;
   }
 }
 
-class Name {
+class NameModel {
   String? common;
   String? official;
   NativeName? nativeName;
 
-  Name({this.common, this.official, this.nativeName});
+  NameModel({this.common, this.official, this.nativeName});
 
-  Name.fromJson(Map<String, dynamic> json) {
+  NameModel.fromJson(Map<String, dynamic> json) {
     common = json['common'];
     official = json['official'];
     nativeName = json['nativeName'] != null
