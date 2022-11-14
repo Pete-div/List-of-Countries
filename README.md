@@ -1,16 +1,4 @@
-# i_country
+The app will fetch all the countries in the world and will also provide details like capital,their languages and flags.e.t.c.I faced alot of challenges ranging from network,power suply and the consuming of the api.I used Getx Technology and i couldnt fetch the datas,it gives error with all the tricks i used, i even tried to ask my collegues,but to no avail.If giving more time, i would have explore more and try to find how to solve the issue.
+this is my appetize link:https://appetize.io/app/mm7qcib7z3s3hsw565634eon5q
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Thanks.
