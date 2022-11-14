@@ -1,17 +1,20 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:i_country/model/country_model.dart';
 
-class Body extends StatefulWidget {
-  const Body({super.key});
+class DetailsScreen extends StatefulWidget {
+  final Country lists;
+  DetailsScreen({ required this.lists});
 
   @override
-  State<Body> createState() => _BodyState();
+  State<DetailsScreen> createState() => _DetailsScreenState();
 }
 
-class _BodyState extends State<Body> {
+class _DetailsScreenState extends State<DetailsScreen> {
   final PageController controller = PageController(initialPage: 0);
   var currenPageValue = 0.0;
+
   @override
   void initState() {
     // TODO: implement initState
@@ -25,6 +28,16 @@ class _BodyState extends State<Body> {
 
   @override
   Widget build(BuildContext context) {
+    List<String?> dataList = [
+     widget.lists.flags!.png,
+      widget.lists.coatOfArms!.png ?? '',
+    ];
+    Map languages = widget.lists.languages!;
+    Map? currencies = widget.lists.currencies!;
+    Map idds = widget.lists.idd!;
+    //
+    Map currencyNames = currencies.values.toString() as Map;
+
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.only(left: 10.0, right: 15),
@@ -62,7 +75,7 @@ class _BodyState extends State<Body> {
                       controller: controller,
                       itemCount: 4,
                       itemBuilder: (ctx, position) {
-                        return _buidPageItem(position);
+                        return _buidPageItem(position, dataList[position]!);
                       }),
                 ),
                 Positioned(
@@ -143,17 +156,17 @@ class _BodyState extends State<Body> {
                 padding: const EdgeInsets.only(top: 12.0, bottom: 10),
                 child: Column(
                   children: [
-                    ListItems(country: 'Population:', value: '  77734'),
-                    ListItems(country: 'Official Language:', value: '  77734'),
-                    ListItems(country: 'Ethnic group:', value: '  77734'),
-                    ListItems(country: 'Motto:', value: '  77734'),
+                    ListItems(country: 'Population:', value: widget.lists.population.toString()),
+                    ListItems(country: 'Official Language:', value: widget.lists.languages.toString()),
+                    ListItems(country: 'Ethnic group:', value: ''),
+                    ListItems(country: 'Motto:', value: '  '),
                     SizedBox(
                       height: 20,
                     ),
-                    ListItems(country: 'Offcial Language:', value: '  77734'),
-                    ListItems(country: 'Capital:', value: '  77734'),
-                    ListItems(country: 'Region:', value: '  77734'),
-                    ListItems(country: 'Government:', value: '  77734'),
+                    ListItems(country: 'Offcial Language:', value: widget.lists.languages.toString()),
+                    ListItems(country: 'Capital:', value: widget.lists.capital.toString()),
+                    ListItems(country: 'Region:', value: widget.lists.region.toString()),
+                    ListItems(country: 'Government:', value: ''),
                     SizedBox(
                       height: 20,
                     ),
@@ -206,16 +219,16 @@ class ListItems extends StatelessWidget {
   }
 }
 
-Widget _buidPageItem(int index) {
+Widget _buidPageItem(int index,String image) {
   return Padding(
-    padding: const EdgeInsets.only(left:6.0,right: 6),
+    padding: const EdgeInsets.only(left: 6.0, right: 6),
     child: Container(
       height: 200,
       width: double.maxFinite,
-      decoration: const BoxDecoration(
+      decoration:  BoxDecoration(
         image: DecorationImage(
-          image: AssetImage(
-            'assets/images/m4.jpg',
+          image: NetworkImage(
+           image
           ),
           fit: BoxFit.cover,
         ),
